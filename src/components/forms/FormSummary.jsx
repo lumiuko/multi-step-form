@@ -1,9 +1,11 @@
 import { useContext } from 'react'
-import { FormContext } from '../context/FormContext'
-import { StepContext } from '../context/StepContext'
-import plans from '../data/plans'
 
-function FormFinish() {
+import { FormContext } from '../../context/FormContext'
+import { StepContext } from '../../context/StepContext'
+import FormHeader from '../ui/FormHeader'
+import plans from '../../data/plans'
+
+export default function FormSummary() {
   const { state } = useContext(FormContext)
   const { dispatchStep } = useContext(StepContext)
 
@@ -26,7 +28,7 @@ function FormFinish() {
   const totalPrice = planPrice + addonsPrice
   const hasAddons = state.addons.length > 0
 
-  function goTo() {
+  function goToSelectPlan() {
     dispatchStep({
       type: 'GO_TO',
       payload: { to: 2 }
@@ -35,13 +37,16 @@ function FormFinish() {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-heading-mobile desktop:text-heading font-bold">Finishing up</h1>
-      <p className="text-gray mt-2 mb-[0.875rem]">Double-check everything looks OK before confirming.</p>
+      <FormHeader title="Finishing up" text="Double-check everything looks OK before confirming." />
       <div className="p-4 bg-very-light-gray text-body-m rounded-large">
         <div className="flex justify-between items-center">
           <div>
             <div className="font-medium">Arcade ({state.isYearly ? 'Yearly' : 'Montly'})</div>
-            <button type="button" className="underline text-gray hover:text-purple transition-colors" onClick={goTo}>
+            <button
+              type="button"
+              className="underline text-gray hover:text-purple transition-colors"
+              onClick={goToSelectPlan}
+            >
               Change
             </button>
           </div>
@@ -60,5 +65,3 @@ function FormFinish() {
     </div>
   )
 }
-
-export default FormFinish

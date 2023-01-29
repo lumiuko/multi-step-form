@@ -1,7 +1,7 @@
-import FormPersonal from '../components/FormPersonal'
-import FormPlan from '../components/FormPlan'
-import FormAddons from '../components/FormAddons'
-import FormFinish from '../components/FormFinish'
+import FormPersonal from '../components/forms/FormPersonal'
+import FormPlan from '../components/forms/FormPlan'
+import FormAddons from '../components/forms/FormAddons'
+import FormSummary from '../components/forms/FormSummary'
 
 const forms = [
   {
@@ -17,7 +17,7 @@ const forms = [
     text: 'Add-ons'
   },
   {
-    component: <FormFinish />,
+    component: <FormSummary />,
     text: 'Summary'
   }
 ]

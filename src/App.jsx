@@ -2,10 +2,9 @@ import { useContext } from 'react'
 
 import Sidebar from './components/Sidebar'
 import MainForm from './components/MainForm'
-import forms from './data/forms'
-
 import { FormProvider } from './context/FormContext'
 import { StepContext } from './context/StepContext'
+import forms from './data/forms'
 
 function App() {
   const { step } = useContext(StepContext)
