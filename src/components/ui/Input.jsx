@@ -9,7 +9,6 @@ export default function Input(props) {
         name={props.name}
         value={props.value}
         onChange={props.onChange}
-        required="true"
       />
     </label>
   )
