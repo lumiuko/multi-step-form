@@ -1,9 +1,11 @@
 import { useContext } from 'react'
 import { FormContext } from '../context/FormContext'
+import { StepContext } from '../context/StepContext'
 import plans from '../data/plans'
 
-function FormFinish(props) {
+function FormFinish() {
   const { state } = useContext(FormContext)
+  const { dispatchStep } = useContext(StepContext)
 
   const termSlug = state.isYearly ? 'yr' : 'mo'
   const currentPlan = plans.find(plan => plan.name === state.plan)
@@ -24,6 +26,13 @@ function FormFinish(props) {
   const totalPrice = planPrice + addonsPrice
   const hasAddons = state.addons.length > 0
 
+  function goTo() {
+    dispatchStep({
+      type: 'GO_TO',
+      payload: { to: 2 }
+    })
+  }
+
   return (
     <div className="flex flex-col">
       <h1 className="text-heading-mobile desktop:text-heading font-bold">Finishing up</h1>
@@ -32,11 +41,7 @@ function FormFinish(props) {
         <div className="flex justify-between items-center">
           <div>
             <div className="font-medium">Arcade ({state.isYearly ? 'Yearly' : 'Montly'})</div>
-            <button
-              type="button"
-              className="underline text-gray hover:text-purple transition-colors"
-              onClick={() => props.goToStep(2)}
-            >
+            <button type="button" className="underline text-gray hover:text-purple transition-colors" onClick={goTo}>
               Change
             </button>
           </div>

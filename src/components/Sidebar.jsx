@@ -1,4 +1,6 @@
-import forms from '../forms'
+import { useContext } from 'react'
+import { StepContext } from '../context/StepContext'
+import forms from '../data/forms'
 
 function Button(props) {
   const additionalClasses = props.selected ? 'bg-sky-blue border-sky-blue text-denim' : ''
@@ -20,16 +22,20 @@ function Button(props) {
 
 function Sidebar(props) {
   const buttons = []
+  const { step, dispatchStep } = useContext(StepContext)
 
-  for (let i = 1; i <= props.totalSteps; i++) {
+  function goTo(to) {
+    dispatchStep({
+      type: 'GO_TO',
+      payload: {
+        to
+      }
+    })
+  }
+
+  for (let i = 1; i <= forms.length; i++) {
     buttons.push(
-      <Button
-        key={i}
-        value={i}
-        selected={props.step === i}
-        text={forms[i - 1].text}
-        onClick={() => props.goToStep(i)}
-      />
+      <Button key={i} value={i} selected={step.current === i} text={forms[i - 1].text} onClick={() => goTo(i)} />
     )
   }
 

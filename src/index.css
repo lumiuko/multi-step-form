@@ -2,39 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .fade-enter {
-  opacity: 0;
-}
-.fade-exit {
-  opacity: 1;
-}
-.fade-enter-active {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-}
-.fade-enter-active,
-.fade-exit-active {
-  transition: opacity 500ms;
-} */
+/* React transition group */
 
 .fade-enter {
   opacity: 0;
   transform: translateX(-10%);
 }
+
 .fade-enter-active {
   opacity: 1;
   transform: translateX(0%);
 }
+
 .fade-exit {
   opacity: 1;
   transform: translateX(0%);
 }
+
 .fade-exit-active {
   opacity: 0;
   transform: translateX(10%);
 }
+
 .fade-enter-active,
 .fade-exit-active {
   transition: opacity 400ms, transform 400ms;

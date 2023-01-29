@@ -1,27 +1,32 @@
 import { useContext } from 'react'
-import { FormContext } from '../context/FormContext'
 
-function Footer({ step, totalSteps, goToStep, isCompleted, complete }) {
+import { FormContext } from '../context/FormContext'
+import { StepContext } from '../context/StepContext'
+import forms from '../data/forms'
+
+function Footer() {
   // const { state, dispatch } = useContext(FormContext)
-  const isLastStep = step === totalSteps
+  const { step, dispatchStep } = useContext(StepContext)
+  const isLastStep = step.current === forms.length
 
   function handleNextClick() {
     if (isLastStep) {
-      complete()
+      dispatchStep({ type: 'COMPLETE' })
       return
     }
-    goToStep(step + 1)
+
+    dispatchStep({ type: 'GO_NEXT' })
   }
 
   function goBack() {
-    goToStep(step - 1)
+    dispatchStep({ type: 'GO_BACK' })
   }
 
-  if (isCompleted) return
+  if (step.isCompleted) return
 
   return (
     <div className="px-4 flex bg-white p-4 font-medium text-body-m w-full fixed bottom-0 left-0 desktop:static">
-      {step > 1 && (
+      {step.current > 1 && (
         <button className="text-gray hover:text-denim transition-colors" onClick={goBack} type="button">
           Go Back
         </button>

@@ -1,7 +1,7 @@
-import FormPersonal from './components/FormPersonal'
-import FormPlan from './components/FormPlan'
-import FormAddons from './components/FormAddons'
-import FormFinish from './components/FormFinish'
+import FormPersonal from '../components/FormPersonal'
+import FormPlan from '../components/FormPlan'
+import FormAddons from '../components/FormAddons'
+import FormFinish from '../components/FormFinish'
 
 const forms = [
   {
