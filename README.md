@@ -25,12 +25,15 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](https://i.imgur.com/bJFQ3NM.png)
+![](https://i.imgur.com/WlzjdDD.png)
+![](https://i.imgur.com/nGXamCw.png)
+![](https://i.imgur.com/wGOm5Fl.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/multistep-form-using-react-and-tailwind-U_KE3p01SA](https://www.frontendmentor.io/solutions/multistep-form-using-react-and-tailwind-U_KE3p01SA)
+- Live Site URL: [https://multi-step-react.vercel.app/](https://multi-step-react.vercel.app/)
 
 ## My process
 
