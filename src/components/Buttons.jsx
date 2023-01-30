@@ -1,9 +1,11 @@
 import { useContext } from 'react'
+import { FormContext } from '../context/FormContext'
 
 import { StepContext } from '../context/StepContext'
 import forms from '../data/forms'
 
 function Buttons() {
+  const { state } = useContext(FormContext)
   const { step, dispatchStep } = useContext(StepContext)
   const isLastStep = step.current === forms.length
 
@@ -32,9 +34,10 @@ function Buttons() {
       <button
         className={`${
           isLastStep ? 'bg-purple hover:bg-purple-hover' : 'bg-denim hover:bg-denim-hover'
-        } text-white px-4 py-3 ml-auto transition-colors rounded-small desktop:rounded-large desktop:px-6 desktop:py-[0.875rem]`}
+        } text-white px-4 py-3 ml-auto transition-colors rounded-small desktop:rounded-large desktop:px-6 desktop:py-[0.875rem] disabled:bg-gray`}
         onClick={goNext}
         type="button"
+        disabled={state.isValidationError}
       >
         {isLastStep ? 'Confirm' : 'Next Step'}
       </button>

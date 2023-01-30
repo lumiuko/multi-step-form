@@ -1,9 +1,14 @@
 import { createContext, useReducer } from 'react'
+import inputs from '../data/inputs'
+
+const importedInputs = {}
+inputs.forEach(input => {
+  importedInputs[input.name] = ''
+})
 
 const initialState = {
-  name: '',
-  email: '',
-  phone: '',
+  ...importedInputs,
+  isValidationError: true,
   plan: 'Arcade',
   isYearly: false,
   addons: []
@@ -26,6 +31,12 @@ function reducer(state, action) {
       return {
         ...state,
         addons: state.addons.filter(addon => addon.name !== action.addon.name)
+      }
+    }
+    case 'SET_VALIDATION': {
+      return {
+        ...state,
+        isValidationError: action.isValidationError
       }
     }
     default:

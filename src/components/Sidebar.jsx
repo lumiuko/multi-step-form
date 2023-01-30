@@ -2,8 +2,10 @@ import { useContext } from 'react'
 import { StepContext } from '../context/StepContext'
 import SidebarButton from './ui/SidebarButton'
 import forms from '../data/forms'
+import { FormContext } from '../context/FormContext'
 
 function Sidebar() {
+  const { state } = useContext(FormContext)
   const { step, dispatchStep } = useContext(StepContext)
 
   function goTo(to) {
@@ -17,7 +19,7 @@ function Sidebar() {
       selected={step.current === index + 1}
       text={form.text}
       onClick={() => goTo(index + 1)}
-      disabled={step.isCompleted}
+      disabled={step.isCompleted || state.isValidationError}
     />
   ))
 
