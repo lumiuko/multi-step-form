@@ -24,7 +24,7 @@ export default function PlanSelect({ item }) {
         className="peer sr-only"
         onChange={handleChange}
       />
-      <div className="flex transition-all border-light-gray rounded-large p-4 border-[1px] mb-6 desktop:mb-8 peer-checked:bg-very-light-gray cursor-pointer peer-checked:border-purple gap-[0.875rem] desktop:justify-between desktop:flex-col desktop:h-[160px] desktop:w-[138px]">
+      <div className="flex transition-all border-light-gray rounded-large p-4 border-[1px] peer-checked:bg-very-light-gray cursor-pointer peer-checked:border-purple gap-[0.875rem] desktop:justify-between desktop:flex-col desktop:h-[160px] desktop:w-[138px]">
         <img src={item.img} className="desktop:w-[40px]" alt={`${item.name} plan`} />
         <div className="flex flex-col justify-between">
           <h5 className="font-medium">{item.name}</h5>

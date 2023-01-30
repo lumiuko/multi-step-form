@@ -19,8 +19,8 @@ export default function FormPlan() {
   return (
     <div className="flex flex-col">
       <FormHeader title="Select your plan" text="You have the option of monthly or yearly billing." />
-      <div className="flex flex-col desktop:flex-row desktop:gap-[1.125rem]">{planSelects}</div>
-      <div className="flex justify-center items-center bg-very-light-gray rounded-large py-[0.875rem] font-medium">
+      <div className="flex flex-col desktop:flex-row gap-3 desktop:gap-[1.125rem]">{planSelects}</div>
+      <div className="flex justify-center items-center bg-very-light-gray rounded-large py-[0.875rem] mt-6 desktop:mt-8 font-medium">
         <span>Monthly</span>
         <Switch name="isYearly" checked={state.isYearly} toggle={handleChange} />
         <span>Yealy</span>
